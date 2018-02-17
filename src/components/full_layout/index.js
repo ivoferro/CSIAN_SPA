@@ -1,11 +1,11 @@
-import Aside from './Aside.vue'
-import Footer from './Footer.vue'
-import Header from './Header.vue'
-import Main from './Main.vue'
+import AppAside from './AppAside.vue'
+import AppFooter from './AppFooter.vue'
+import AppHeader from './AppHeader.vue'
+import AppMain from './AppMain.vue'
 
 export {
-  Aside,
-  Footer,
-  Header,
-  Main
+  AppAside,
+  AppFooter,
+  AppHeader,
+  AppMain
 }

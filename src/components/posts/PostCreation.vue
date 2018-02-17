@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p>Aside</p>
+    <p>Post Creation</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'aside'
+  name: 'postcreation'
 }
 </script>

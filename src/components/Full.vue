@@ -1,26 +1,34 @@
 <template>
   <div>
-    <Header/>
+    <AppHeader/>
     <div class='container'>
-      <Main>
-        <router-view></router-view>
-      </Main>
-      <Aside/>
+      <div class='row main-content'>
+        <AppMain class='col-md-8'>
+          <router-view></router-view>
+        </AppMain>
+        <AppAside class='col-md-3 offset-md-1'/>
+      </div>
     </div>
-    <Footer/>
+    <AppFooter/>
   </div>
 </template>
 
 <script>
-import { Header, Main, Aside, Footer } from './full_layout/'
+import { AppHeader, AppMain, AppAside, AppFooter } from './full_layout/'
 
 export default {
   name: 'full',
   components: {
-    Header,
-    Main,
-    Aside,
-    Footer
+    AppHeader,
+    AppMain,
+    AppAside,
+    AppFooter
   }
 }
 </script>
+
+<style scoped>
+  .main-content {
+    padding: 15px 0px 15px 0px;
+  }
+</style>

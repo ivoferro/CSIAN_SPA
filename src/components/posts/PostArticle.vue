@@ -1,13 +1,11 @@
 <template>
   <div>
-    <slot>
-      <p>Main</p>
-    </slot>
+    <p>Post Article</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'main'
+  name: 'postarticle'
 }
 </script>

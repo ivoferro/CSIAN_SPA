@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p>Footer</p>
+    <p>The page you are looking for doesn't exists.</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'footer'
+  name: 'not-found'
 }
 </script>
