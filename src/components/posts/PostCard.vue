@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="card-footer">
-      <p class="card-text"><small class="text-muted">17 February, 2018</small></p>
+      <p class="card-text"><small class="text-muted"><a href="#">IVO FERRO</a> - 17 February, 2018</small></p>
     </div>
   </div>
 </template>
