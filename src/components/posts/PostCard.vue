@@ -4,10 +4,12 @@
       <img src="https://placekitten.com/400/250" alt="Card image cap">
     </div>
     <div class="card-body">
-      <h5 class="card-title">Post Title</h5>
+      <router-link :to="{ path: '/post/' + id }">
+        <h5 class="card-title">{{ title }}</h5>
+      </router-link>
       <p class="card-text">
-        This is quite a long post for a post review, but yeah, lets see what is the behavior and how it is looking.
-        <a href="#">read more...</a>
+        {{ body }}
+        <a :to="{ path: '/post/' + id }">read more...</a>
       </p>
     </div>
     <div class="card-footer">
@@ -18,7 +20,12 @@
 
 <script>
 export default {
-  name: 'post-card'
+  name: 'post-card',
+  props: {
+    id: [String, Number],
+    title: String,
+    body: String
+  }
 }
 </script>
 
