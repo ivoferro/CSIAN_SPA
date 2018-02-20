@@ -1,7 +1,7 @@
 <template>
   <div class='posts-collection'>
     <div class='row'>
-      <div v-for='(post, index) in posts' class='post-wrapper' :class="{'col-md-5': index % 2 === 0, 'col-md-7': index % 2 !== 0 }">
+      <div v-for='(post, index) in posts' class='post-wrapper' :class="getColsClass(index)">
         <PostCard :id='post.id' :title='post.title' :body='post.body'/>
       </div>
     </div>
@@ -20,6 +20,14 @@ export default {
   computed: mapGetters({
     posts: 'allPosts'
   }),
+  methods: {
+    getColsClass: function (index) {
+      if (index === 0 || index === 3 || index === 4) {
+        return 'col-md-5'
+      }
+      return 'col-md-7'
+    }
+  },
   created () {
     this.$store.dispatch('getAllPosts')
   }

@@ -4,12 +4,12 @@
       <img src="https://placekitten.com/400/250" alt="Card image cap">
     </div>
     <div class="card-body">
-      <router-link :to="{ path: '/post/' + id }">
-        <h5 class="card-title">{{ title }}</h5>
-      </router-link>
+      <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">
         {{ body }}
-        <a :to="{ path: '/post/' + id }">read more...</a>
+        <router-link :to="{path: '/post/' + id}">
+          read more...
+        </router-link>
       </p>
     </div>
     <div class="card-footer">

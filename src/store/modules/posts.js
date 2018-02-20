@@ -3,12 +3,14 @@ import axios from 'axios'
 
 // initial state
 const state = {
-  all: []
+  all: [],
+  selectedPost: null
 }
 
 // getters
 const getters = {
-  allPosts: state => state.all
+  allPosts: state => state.all,
+  selectedPost: state => state.selectedPost
 }
 
 // actions
@@ -26,6 +28,21 @@ const actions = {
     .catch(_error => {
       // error fetching posts
     })
+  },
+
+  getPost ({ commit }, { postID }) {
+    axios.request(
+      {
+        'method': 'get',
+        'baseURL': config.dev.csian_blog_api.url,
+        'url': '/api/posts/' + postID
+      })
+    .then(response => {
+      commit('setSelectedPost', response.data)
+    })
+    .catch(_error => {
+      // error fetching posts
+    })
   }
 }
 
@@ -33,6 +50,9 @@ const actions = {
 const mutations = {
   setPosts (state, posts) {
     state.all = posts
+  },
+  setSelectedPost (state, post) {
+    state.selectedPost = post
   }
 }
 

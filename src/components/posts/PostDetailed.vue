@@ -1,8 +1,8 @@
 <template>
-  <div class='post'>
+  <div class='post' v-if="post">
     <div class='card'>
       <div class="card-body">
-        <h1 class="card-title">Post Title</h1>
+        <h1 class="card-title">{{post.title}}</h1>
         <p class="card-text"><small class="text-muted"><a href="#">IVO FERRO</a> - 17 February, 2018</small></p>
         <hr/>
         <div v-html="compiledMarkdown"></div>
@@ -14,18 +14,26 @@
 
 <script>
 var marked = require('marked')
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'postdetailed',
-  data: function () {
-    return {
-      input: '## hello\r\n\r\nThis **is** some mark~~down~~\r\n\r\n![image](https://placekitten.com/400/250)\r\n\r\n### Another topic\r\n\r\nYADA YADA YADA esldfadnlads nsadn fsansadn slas dj vlnaldnd fasd nd asfsdfanfalfdasnffsadadfsn'
-    }
+  props: {
+    id: [String, Number]
   },
   computed: {
     compiledMarkdown: function () {
-      return marked(this.input, { sanitize: true })
-    }
+      return marked(this.post.body, { sanitize: true })
+    },
+    ...mapGetters({
+      post: 'selectedPost'
+    })
+  },
+  created () {
+    this.$store.dispatch({
+      type: 'getPost',
+      postID: this.$route.params.id
+    })
   }
 }
 </script>
